@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="TestSuites.demoSuite">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="EndExtentReport"/>
+          <include name="Test2"/>
+          <include name="StartExtentReport"/>
+          <include name="EndReportlooger"/>
+          <include name="reportfinish"/>
+        </methods>
+      </class> <!-- TestSuites.demoSuite -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
