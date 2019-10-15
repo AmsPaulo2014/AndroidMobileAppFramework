@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="224" started-at="2019-10-14T16:51:16Z" finished-at="2019-10-14T16:51:16Z">
+  <suite name="Default suite" duration-ms="212" started-at="2019-10-15T17:59:39Z" finished-at="2019-10-15T17:59:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="224" started-at="2019-10-14T16:51:16Z" finished-at="2019-10-14T16:51:16Z">
+    <test name="Default test" duration-ms="212" started-at="2019-10-15T17:59:39Z" finished-at="2019-10-15T17:59:40Z">
       <class name="ReadAndWriteXL.ReadExcelFile">
-        <test-method status="PASS" signature="readFile()[pri:0, instance:ReadAndWriteXL.ReadExcelFile@64bfbc86]" name="readFile" duration-ms="203" started-at="2019-10-14T16:51:16Z" finished-at="2019-10-14T16:51:16Z">
+        <test-method status="PASS" signature="myTest()[pri:0, instance:ReadAndWriteXL.ReadExcelFile@64bfbc86]" name="myTest" duration-ms="192" started-at="2019-10-15T17:59:39Z" finished-at="2019-10-15T17:59:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- readFile -->
+        </test-method> <!-- myTest -->
       </class> <!-- ReadAndWriteXL.ReadExcelFile -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

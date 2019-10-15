@@ -11,6 +11,10 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.testng.annotations.Test;
 
 public class ReadExcelFile {
+	public Workbook workbook; 
+	public File file;
+	public static Sheet xlSheet;
+	public  int rowCount;
 	
 	
 	public void readExcel(String filePath,String fileName,String sheetName) throws IOException
@@ -18,13 +22,13 @@ public class ReadExcelFile {
 
 	    //Create an object of File class to open xlsx file
 
-	    File file =    new File(filePath+"\\"+fileName);
+	     file =    new File(filePath+"\\"+fileName);
 
 	    //Create an object of FileInputStream class to read excel file
 
 	    FileInputStream inputStream = new FileInputStream(file);
 
-	    Workbook guru99Workbook = null;
+	     workbook = null;
 
 	    //Find the file extension by splitting file name in substring  and getting only extension name
 
@@ -37,7 +41,7 @@ public class ReadExcelFile {
 
 	    //If it is xlsx file then create object of XSSFWorkbook class
 
-	    //guru99Workbook = new XSSFWorkbook(inputStream);
+	    //workbook = new XSSFWorkbook(inputStream);
 
 	    }
 
@@ -48,32 +52,41 @@ public class ReadExcelFile {
 
 	        //If it is xls file then create object of HSSFWorkbook class
 
-	        guru99Workbook = new HSSFWorkbook(inputStream);
+	        workbook = new HSSFWorkbook(inputStream);
 
 	    }
 
 	    //Read sheet inside the workbook by its name
 
-	    Sheet guru99Sheet = guru99Workbook.getSheet(sheetName);
+	     xlSheet = workbook.getSheet(sheetName);
 
 	    //Find number of rows in excel file
 
-	    int rowCount = guru99Sheet.getLastRowNum()-guru99Sheet.getFirstRowNum();
+	     rowCount = xlSheet.getLastRowNum()-xlSheet.getFirstRowNum();
 	    
-	    System.out.println("Total Row Count is >> "+rowCount);
+	    System.out.println("Total Row Count ("+xlSheet.getLastRowNum()+"-"+xlSheet.getFirstRowNum()+") = "+rowCount);
 	    
+	}
+	
+/*	public String readCellData(int rowNumber , int columnNumber)
+	{
 	    
-	    //Row number Start From 1 and Column no Start from 0
-        System.out.println("Username is >> " +guru99Sheet.getRow(2).getCell(0).getStringCellValue());
-        System.out.println("City is >> " +guru99Sheet.getRow(2).getCell(1).getStringCellValue());
-	    
+	    //Row number and Column number are Start from 0
+		
+        String cellData= xlSheet.getRow(rowNumber).getCell(columnNumber).getStringCellValue();
+        
+        return cellData;
+	}  */
+	
 
+	public void readAllSheetData()
+	{
 	    //Create a loop over all the rows of excel file to read it
 
 	    for (int i = 0; i < rowCount+1; i++) 
 	    {
 
-	        Row row = guru99Sheet.getRow(i);
+	        Row row = xlSheet.getRow(i);
 
 	        //Create a loop to print cell values in a row
 
@@ -87,17 +100,15 @@ public class ReadExcelFile {
 	        }
 
 	        System.out.println();
-	        
+	     } 
 
-	    } 
-
-	    }  
+	 }  
 
 	    //Main function is calling readExcel function to read data from excel file
 
 	
 	
-		@Test
+		
 	    public static void readFile()throws IOException
 	    {
 
@@ -111,13 +122,34 @@ public class ReadExcelFile {
 	    
 	    String filePath = System.getProperty("user.dir")+"\\ExcelSheet";
 	    
-	    System.out.println("User Dir is >> " +System.getProperty("user.dir"));
+	    //System.out.println("User Dir is >> " +System.getProperty("user.dir"));
 
 	    //Call read file method of the class to read data
 
 	    objExcelFile.readExcel(filePath,"XlsMyFile.xls","dataSheet");
-
+	    System.out.println( "Password is >> " +objExcelFile.readCellData1(2, 1));
+	    
 	    }
+	    
+	    
+		
+		public static String readCellData1(int rowNumber , int columnNumber) throws IOException
+		{
+		    
+			ReadExcelFile objExcelFile = new ReadExcelFile();
+		    String filePath = System.getProperty("user.dir")+"\\ExcelSheet";
+		    objExcelFile.readExcel(filePath,"XlsMyFile.xls","dataSheet");		
+	        String cellData1= xlSheet.getRow(rowNumber).getCell(columnNumber).getStringCellValue();
+	        return cellData1;
+		} 
+		
+		@Test
+		public void myTest() throws IOException
+		{
+
+			System.out.println("Test username >>"+ReadExcelFile.readCellData1(1, 1));
+			
+		}
 
 
 

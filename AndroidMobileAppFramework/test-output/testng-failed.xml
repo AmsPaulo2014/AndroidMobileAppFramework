@@ -3,16 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestSuites.demoSuite">
+      <class name="ReadAndWriteXL.ReadExcelFile">
         <methods>
-          <include name="beforeTest"/>
-          <include name="EndExtentReport"/>
-          <include name="Test2"/>
-          <include name="StartExtentReport"/>
-          <include name="EndReportlooger"/>
-          <include name="reportfinish"/>
+          <include name="myTest"/>
         </methods>
-      </class> <!-- TestSuites.demoSuite -->
+      </class> <!-- ReadAndWriteXL.ReadExcelFile -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,17 +1,33 @@
 package TestScripts;
 
 import static org.testng.Assert.assertTrue;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
 import ExtentReport.htmlExtentReport;
 import com.aventstack.extentreports.Status;
 
 import ObjectRepository.OR_DashboardScreen;
+import  ReadAndWriteXL.ReadExcelFile;
 
 public class dashBoardScreen extends BaseClass {
 	//ClassExtentReports report = new ClassExtentReports();
 	
 	htmlExtentReport report= new htmlExtentReport();
+	ReadExcelFile ReadExcelFile = new ReadExcelFile();
 	
-	
+	@Test
+	public void myTest() throws IOException
+	{
+		String city =ReadExcelFile.readCellData1(2, 1);
+		System.out.println("===> 1 " +city);
+		
+		
+		//System.out.println(ReadExcelFile.readCellData1(2, 0));
+		
+	}
 	public void Accessibility()
 	{		
 		try {
